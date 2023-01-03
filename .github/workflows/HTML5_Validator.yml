@@ -1,0 +1,23 @@
+# This is a basic workflow that is manually triggered
+
+name: HTML5 Validator
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  push:
+   branches: [ main ]
+  pull_request:
+   branches: [ main ]
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+   runs-on: ubuntu-latest
+   steps:
+    - uses: actions/checkout@v2
+    - name: HTML5 Validator
+      uses: Cyb3r-Jak3/html5validator-action@v0.6.1
+      with:
+       root: ${{ github.workspace }}
